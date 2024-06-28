@@ -197,6 +197,8 @@ const FilterNavigator = ({
     dn: loading,
   })
 
+  console.log("on filter navigator.js",selectedFilters)
+
   return (
     <Fragment>
       {loading && !mobileLayout ? (
@@ -290,6 +292,7 @@ const FilterNavigator = ({
               showClearByFilter={showClearByFilter}
               priceRangeLayout={priceRangeLayout}
               scrollToTop={scrollToTop}
+              allSelectedFilters={selectedFilters}
             />
             {showClearAllFiltersOnDesktop && hasFiltersApplied && (
               <div

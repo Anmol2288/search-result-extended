@@ -8,8 +8,27 @@ const LAZY_RENDER_THRESHOLD = 3
 
 const AvailableFilters = ({ filters = [], ...props }) => {
   const [lastOpenFilter, setLastOpenFilter] = useState()
+  console.log("all available props $$$$", props)
+  const excludedKeys = ["armadora", "modelo", "ano"];
+  const filteredFilters = filters.filter(filter => !excludedKeys.includes(filter.key));
+  console.log("filteredFilters are^^^^", filteredFilters);
+  console.log("filters are-----", filters);
+  // return filters.map((filter, i) => (
+  //   <Filter
+  //     filter={filter}
+  //     {...props}
+  //     lastOpenFilter={lastOpenFilter}
+  //     setLastOpenFilter={setLastOpenFilter}
+  //     key={filter.title}
+  //     lazyRender={i >= LAZY_RENDER_THRESHOLD}
+  //   />
+  // ))
+  if (!filters || filters.length === 0) {
+    // Return null or a placeholder if there are no filters
+    return null;
+  }
 
-  return filters.map((filter, i) => (
+  return filteredFilters.map((filter, i) => (
     <Filter
       filter={filter}
       {...props}
@@ -18,7 +37,7 @@ const AvailableFilters = ({ filters = [], ...props }) => {
       key={filter.title}
       lazyRender={i >= LAZY_RENDER_THRESHOLD}
     />
-  ))
+  ));
 }
 
 const Filter = ({

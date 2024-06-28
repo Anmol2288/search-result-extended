@@ -25,6 +25,7 @@ const AvailableFilters = ({
 
       default:
         return (
+          <>
           <SearchFilter
             key={title}
             title={title}
@@ -32,6 +33,7 @@ const AvailableFilters = ({
             preventRouteChange={preventRouteChange}
             oneSelectedCollapse={oneSelectedCollapse}
           />
+          </>
         )
     }
   })

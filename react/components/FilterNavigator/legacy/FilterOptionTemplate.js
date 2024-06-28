@@ -19,11 +19,12 @@ const FilterOptionTemplate = ({
   const [open, setOpen] = useState(true)
 
   const renderChildren = () => {
+    console.log("childrens are---", children);
     if (typeof children !== 'function') {
       return children
     }
 
-    return filters.map(children)
+    // return filters.map(children)
   }
 
   const handleKeyDown = useCallback(

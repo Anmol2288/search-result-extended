@@ -37,6 +37,7 @@ const AccordionFilterGroup = ({
   const slugifiedFacetTitle = searchSlugify(facetTitle)
   const facetKey = filters.length > 0 ? filters[0].key : null
 
+  console.log("testing purpose *****", facets);
   return (
     <AccordionFilterItem
       facetKey={facetKey}

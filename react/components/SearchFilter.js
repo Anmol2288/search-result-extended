@@ -31,7 +31,7 @@ const SearchFilter = ({
   const intl = useIntl()
   const sampleFacet = facets && facets.length > 0 ? facets[0] : null
   const facetTitle = getFilterTitle(title, intl)
-
+  console.log("on search filter js");
   return (
     <FilterOptionTemplate
       id={sampleFacet ? sampleFacet.map : null}
@@ -61,6 +61,7 @@ const SearchFilter = ({
           navigateToFacet={navigateToFacet}
         />
       )}
+      {/* This is where filters */}
     </FilterOptionTemplate>
   )
 }

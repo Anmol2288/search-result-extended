@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 
@@ -24,12 +24,16 @@ const SelectedFilters = ({
   const { showFacetTitle } = useContext(SettingsContext)
 
   const visibleFilters = filters.filter(filter => !filter.hidden)
+  console.log("visible filters are---9999", visibleFilters);
 
   if (!visibleFilters.length) {
     return null
   }
 
+  const [customeFilter, setCustomFilter] = useState(false);
+
   const title = intl.formatMessage({ id: 'store/search.selected-filters' })
+  console.log("on selected filters******", filters);
 
   return (
     <FilterOptionTemplate
